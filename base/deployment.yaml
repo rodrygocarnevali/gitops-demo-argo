@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minha-api
+  labels:
+    app: minha-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: minha-api
+  template:
+    metadata:
+      labels:
+        app: minha-api
+    spec:
+      containers:
+        - name: minha-api
+          image: rodrygocarnevali/minha-api:latest
+          ports:
+            - containerPort: 5000
